@@ -20,9 +20,7 @@ public class CountryController {
     }
 
     @GetMapping("/country/{code}")
-    public ResponseEntity<Country> findByCode(
-            @PathVariable String code
-    ) {
+    public ResponseEntity<Country> findByCode (@PathVariable String code) {
         return ResponseEntity.of(repo.findFirstByCode(code));
     }
 
@@ -51,13 +49,10 @@ public class CountryController {
     }
 
 
-    @DeleteMapping
+    @DeleteMapping("/country/{id}")
     public ResponseEntity<?> deleteCountry (@PathVariable Long id) {
         if (repo.existsById(id))
             repo.deleteById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
-
-
 }

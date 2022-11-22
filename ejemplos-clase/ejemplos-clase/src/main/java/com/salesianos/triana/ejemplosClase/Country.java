@@ -15,7 +15,7 @@ public class Country {
     private Long id;
 
     private String code, name, currency, capital;
-    public int population;
+    private int population;
 
 }
 
